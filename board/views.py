@@ -10,16 +10,31 @@ from django.utils.decorators import method_decorator
 def index_function(request, code, name):
     if request.method == 'GET':
         # return HttpResponse("index by GET FBV function called")
+        query_string = request.GET.get('qs')
         context = {
             "method": request.method,
             "user": request.user,
             "greeting": "안녕하세요",
-            "code": code,
-            "name": name
+            # "code": code,
+            # "name": name,
+            "query_string" : query_string
         }
         return render(request, "index.html", context)
     if request.method == 'POST':
         return HttpResponse("index by POST FBV function called")
+    
+def index_function2(request):
+    if request.method == 'GET':
+        query_string = request.GET.get('qs')
+        context = {
+            "method": request.method,
+            "user": request.user,
+            "greeting": "안녕하세요",
+            "query_string" : query_string
+        }
+        return render(request, "index.html", context)
+    if request.method == 'POST':
+        return HttpResponse("index by POST FBV function2 called")
     
 
 # Class Based View
