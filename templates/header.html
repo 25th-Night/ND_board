@@ -3,3 +3,16 @@
 {% block head_css %}
 <link rel="stylesheet" href="{% static 'css/header.css' %}">
 {% endblock head_css %}
+
+<header class="header">
+    <nav class="nav">
+        <div class="left-section">
+            <a href="{% url 'index' %}">ND BOARD</a>
+        </div>
+        <div class="middle-section"></div>
+        <div class="right-section">
+            <button class="main-button header-link" onclick="location.href='{% url 'attendance_list' %}'">출석부</button>
+            <button class="history-button header-link" onclick="location.href='{% url 'question_list' %}'">질문</button>
+        </div>
+    </nav>
+</header>
