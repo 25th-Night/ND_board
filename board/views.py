@@ -73,3 +73,7 @@ class QuestionCreateView(TemplateView):
     
     def post(self, request):
         return redirect('question_list')
+    
+
+def index(request):
+    return redirect("attendance_list")
