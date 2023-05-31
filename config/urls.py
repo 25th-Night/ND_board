@@ -19,12 +19,13 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-from board.views import IndexClass, IndexClass2, index_function
+from board.views import IndexClass, IndexClass2, index_function, index_function2
 
 urlpatterns = [
 	path('admin/', admin.site.urls),
 	# path("", include("board.urls")),
     path("fbv/<str:code>/<str:name>", index_function, name="index_function"),
+    path("fbv2", index_function2, name="index_function2"),
     path("cbv", IndexClass.as_view(), name="index_class"),
     path("cbv2", IndexClass2.as_view(), name="index_class2"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
