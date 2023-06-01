@@ -1,19 +1,26 @@
 {% load static %}
 
 {% block head_css %}
-<script src="https://kit.fontawesome.com/c8ed40ec38.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="{% static 'css/header.css' %}">
 {% endblock head_css %}
 
+{% block head_js %}
+<script defer src="https://kit.fontawesome.com/c8ed40ec38.js" crossorigin="anonymous"></script>
+<script defer src="{% static 'js/header.js' %}"></script>
+{% endblock head_js %}
+
 <header class="header">
     <nav class="nav">
-        <div class="left-section">
+        <div class="nav-logo">
             <i class="fa-solid fa-clipboard-check"></i>
-            <a href="{% url 'index' %}" class="logo">ND BOARD</a>
+            <a href="{% url 'index' %}" class="nav-logo-name">ND BOARD</a>
         </div>
-        <ul class="right-section">
+        <ul class="nav-menu">
             <li class="attendance-btn" onclick="location.href='{% url 'attendance_list' %}'">출석부</li>
             <li class="question-list-btn" onclick="location.href='{% url 'question_list' %}'">질문</li>
         </ul>
+        <a href="#" class="nav-toggleBtn">
+            <i class="fa-solid fa-bars"></i>
+        </a>
     </nav>
 </header>
