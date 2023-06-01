@@ -32,7 +32,7 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # STATIC 경로
-# STATICFILES_DIRS = [BASE_DIR / "static"]
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # TEMPLATE 경로
 TEMPLATE_DIR = BASE_DIR / "templates"
