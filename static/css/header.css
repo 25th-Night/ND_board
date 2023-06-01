@@ -1,7 +1,7 @@
 :root {
     --text-color: rgb(53, 45, 45);
-    --background-color: #8bc091;
-    --accent-color: #d49466;
+    --background-color: #009879;
+    --accent-color: #000000;
 }
 
 body {
@@ -17,35 +17,85 @@ body {
 nav {
     display: flex;
     color: var(--text-color);
-    width: 50%;
     height: 100px;
     border: 1px solid white;
     align-items: center;
 }
 
-nav .left-section {
+nav .nav-logo {
     font-family: Montserrat;
     font-size: 40px;
     font-weight: 800;
     margin-right: 100px;
 }
 
-nav .logo {
+nav .nav-logo-name {
     text-decoration: none;
     color: var(--text-color);
 }
 
-nav .right-section {
+nav .nav-menu {
     display: flex;
     padding: 0;
     list-style: none;
     font-size: 20px;
 }
 
-nav li {
-    margin: 0 20px;
+nav .nav-menu li {
+    padding: 0 20px;
 }
 
-nav li:hover {
+nav .nav-menu li:hover {
     cursor: pointer;
+    background-color: var(--background-color);
+    border-radius: 4px;;
+    color: white;
+}
+
+.nav-toggleBtn {
+    position: absolute;
+    top: 30px;
+    right: 32px;
+    color: var(--accent-color);
+    display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 10px;
+    }
+
+    nav .nav-logo {
+        margin: 20px 0 0;
+        width: 100%;
+    }
+
+    nav .nav-logo a {
+        width: 100%; 
+    }
+
+    nav .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    nav .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-toggleBtn {
+        display: block;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
 }
