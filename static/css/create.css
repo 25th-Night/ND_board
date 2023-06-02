@@ -1,0 +1,72 @@
+:root {
+    --text-color-header: rgb(53, 45, 45);
+    --text-color-btn-sbm: white;
+    --background-color: #009879;
+    --background-color-btn-sbm: #009879;
+    --background-color-btn-atl: 
+    --background-color-tr: rgba(219, 219, 219, 0.472);
+}
+
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+form {
+    width: 600px;
+}
+
+.form-item {
+    margin-bottom: 15px;
+}
+
+.input-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.status-option-wrap {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    font-size: 15px;
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+    width: 100%;
+}
+
+input[type="radio"] {
+    cursor: pointer;
+}
+
+label {
+    margin-left: 5px;
+}
+
+.btn-wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.btn-wrap div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48%;
+    height: 50px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-submit {
+    background-color : var(--background-color-btn-sbm);
+    color: var(--text-color-btn-sbm);
+}

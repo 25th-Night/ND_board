@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_css %}
+<link rel="stylesheet" href="{% static 'css/list.css' %}">
+{% endblock head_css %}
+
+{% block head_js %}
+<script defer src="{% static 'js/list.js' %}"></script>
+{% endblock head_js %}
+
+{% block content%}
+<section class="list-wrap">
+    <div class="table">
+        <div class="table-head">
+            <div class="name">이름</div>
+            <div class="date">날짜</div>
+            <div class="status">출석여부</div>
+            <div class="reason">비고</div>
+        </div>
+        <div class="table-row">
+            <div class="name">홍길동1</div>
+            <div class="date">2022.03.13</div>
+            <div class="status">출석</div>
+            <div class="reason">없음</div>
+        </div>
+        <div class="table-row">
+            <div class="name">홍길동2</div>
+            <div class="date">2022.03.15</div>
+            <div class="status">일부 일정 불참</div>
+            <div class="reason">은행 방문</div>
+        </div>
+        <div class="table-row">
+            <div class="name">홍길동3</div>
+            <div class="date">2022.03.17</div>
+            <div class="status">결석</div>
+            <div class="reason">병가</div>
+        </div>
+    </div>
+
+    <div class="attendance-submit-btn">출석체크하기</div>
+</section>
+{% endblock content%}

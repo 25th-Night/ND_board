@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block head_css%}
+<link rel="stylesheet" href="{% static 'css/create.css' %}">
+{% endblock head_css %}
+
+{% block head_js %}
+<script defer src="{% static 'js/create.js' %}"></script>
+{% endblock head_js %}
+
+
+{% block content%}
+<section class="create-wrap">
+    <form class="attendance-form" action="" method="post">
+        {% csrf_token %}
+        <div class="form-item name-wrap">
+            <div class="input-title name">이름</div>
+            <input type="text" class="form-control" id="input_name" name="name">
+        </div>
+        <div class="form-item date-wrap">
+            <div class="input-title date">날짜</div>
+            <input type="date" class="form-control" id="input_date" name="date">
+        </div>
+        <div class="form-item status-wrap">
+            <div class="input-title status">출석여부</div>
+            <div class="status-option-wrap">
+                <input type="radio" class="form-control" id="input_radio_attendance" name="status" value="1">
+                <label for="input_radio_attendance" class="status">출석</label>
+            </div>
+            <div class="status-option-wrap">
+                <input type="radio" class="form-control" id="input_radio_absent" name="status" value="2">
+                <label for="input_radio_absent" class="status">결석 (사유 필히 작성)</label>
+            </div>
+            <div class="status-option-wrap">
+                <input type="radio" class="form-control" id="input_radio_partial" name="status" value="3">
+                <label for="input_radio_partial" class="status">일부 일정 불참 (사유 필히 작성)</label>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="input-title reason">사유</div>
+            <textarea id="input_reason" cols="30" rows="10"  name="reason"></textarea>
+        </div>
+        <div class="btn-wrap">
+            <div class="btn-submit">제출하기</div>
+            <div class="btn-attendance-list">목록보기</div>
+        </div>
+
+    </form>
+</section>
+{% endblock content%}
