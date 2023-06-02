@@ -1,10 +1,11 @@
 :root {
     --text-color-header: rgb(53, 45, 45);
     --text-color-btn-sbm: white;
+    --text-color-btn-atl: #009879;
     --background-color: #009879;
     --background-color-btn-sbm: #009879;
-    --background-color-btn-atl: 
     --background-color-tr: rgba(219, 219, 219, 0.472);
+    --border-color-btn-atl: #009879;
 }
 
 
@@ -26,7 +27,7 @@ form {
 .input-title {
     font-size: 20px;
     font-weight: 500;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .status-option-wrap {
@@ -39,7 +40,39 @@ form {
 input[type="text"],
 input[type="date"],
 textarea {
+    box-sizing:border-box;
     width: 100%;
+    border: 1px solid rgb(118, 118, 118);
+    border-radius: 6px;
+}
+
+input[type="text"],
+input[type="date"] {
+    height: 40px; 
+    padding: 2px 5px;
+}
+
+input[type="date"] {
+    max-width: 600px;
+    font-family: 'Noto Sans KR';
+    position: relative;
+    background: url(/static/img/calendar.svg) no-repeat right 5px center / 10px auto;
+}
+
+input[type="date"]::-webkit-clear-button,
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
 }
 
 input[type="radio"] {
@@ -48,6 +81,11 @@ input[type="radio"] {
 
 label {
     margin-left: 5px;
+}
+
+textarea {
+    resize: vertical;
+    padding: 5px 5px;
 }
 
 .btn-wrap {
@@ -69,4 +107,9 @@ label {
 .btn-submit {
     background-color : var(--background-color-btn-sbm);
     color: var(--text-color-btn-sbm);
+}
+
+.btn-attendance-list {
+    border: 1px solid var(--border-color-btn-atl);
+    color: var(--text-color-btn-atl);
 }
