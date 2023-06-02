@@ -1,10 +1,15 @@
 :root {
     --text-color-header: rgb(53, 45, 45);
     --text-color-th: white;
+    --text-color-btn-cr: white;
+    --text-color-btn-cr-hb: #009879;
     --background-color: #009879;
     --background-color-tb1: rgb(172, 172, 172);
     --background-color-tb2: #009879;
     --background-color-tr: rgba(219, 219, 219, 0.472);
+    --background-color-btn-cr: #009879;
+    --background-color-btn-cr-hb: white;
+    --border-color-btn-cr-hb : #009879;
 }
 
 .list-wrap {
@@ -12,6 +17,26 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+}
+
+
+.attendance-create-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    background-color: var(--background-color-btn-cr);
+    color: var(--text-color-btn-cr);
+    cursor: pointer;
+    border-radius: 4px;
+    box-sizing:border-box;
+}
+
+.attendance-create-btn:hover {
+    background-color: var(--background-color-btn-cr-hb);
+    border: 1px solid var(--border-color-btn-cr-hb);
+    color: var(--text-color-btn-cr-hb);
 }
 
 .table {
@@ -48,52 +73,15 @@
     border-bottom:  2px solid var(--background-color-tb2);
 }
 
-.attendance-submit-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    width: 200px;
-    height: 40px;
-    background-color: var(--background-color);
-    color: white;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
 
 
 @media screen and (max-width: 768px) {
-    nav {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0 10px;
+    div.table {
+        width: 400px;
     }
 
-    nav .nav-logo {
-        margin: 25px 50px 0 0;
-        width: 100%;
-    }
-
-    nav .nav-menu {
+    .reason {
         display: none;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    nav .nav-menu li {
-        width: 100%;
-        text-align: center;
-    }
-
-    .nav-toggleBtn {
-        display: block;
-    }
-
-    .nav-menu.active {
-        display: flex;
     }
 
 }
