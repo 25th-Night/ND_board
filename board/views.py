@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 from django.views.generic import TemplateView
@@ -26,11 +26,27 @@ class AttendanceCreateView(TemplateView):
 
     def get_context_data(self, **kwargs):
 
-        context = {}
-
+        context = super().get_context_data(**kwargs)
+        
         return context
     
     def post(self, request):
+        name = request.POST.get('name')
+        date = request.POST.get('date')
+        status = request.POST.get('status')
+        reason = request.POST.get('reason')
+
+        Attendance.objects.create(
+            name=name,
+            date=date,
+            status=status,
+            reason=reason
+        )
+        
+        # 메시지 설정
+        messages.success(request, "성공했습니다.")
+        messages.info(request, "추가 메시지")
+
         return redirect('attendance_list')
 
 
