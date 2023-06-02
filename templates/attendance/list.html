@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 
-{%block head_css%}
+{% block head_css %}
 <link rel="stylesheet" href="{% static 'css/list.css' %}">
 {% endblock head_css %}
 
-
+{% block head_js %}
+<script defer src="{% static 'js/list.js' %}"></script>
+{% endblock head_js %}
 
 {% block content%}
-<div class="list-wrap">
+<section class="list-wrap">
     <div class="table">
         <div class="table-head">
             <div class="name">이름</div>
@@ -37,6 +39,5 @@
     </div>
 
     <div class="attendance-submit-btn">출석체크하기</div>
-</div>
-
+</section>
 {% endblock content%}
