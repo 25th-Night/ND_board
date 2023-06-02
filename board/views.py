@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 from django.views.generic import TemplateView
+from django.core.paginator import Paginator
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 
@@ -18,6 +19,22 @@ class AttendanceListView(TemplateView):
         attendances = Attendance.objects.all().order_by('-created_at')
         context['attendances'] = attendances
 
+         # Pagination
+        number_by_page = 10
+        paginator = Paginator(object_list=attendances, per_page=number_by_page)
+        page = self.request.GET.get("page", 1   )
+        page_obj = paginator.get_page(page)
+        page_num_list = [num for num in range(1, page_obj.paginator.num_pages + 1)]
+
+
+        attendances_empty_row_count = number_by_page - len(attendances) % number_by_page
+        if not len(attendances) % number_by_page and len(attendances) != 0:
+            attendances_empty_row_count = 0
+
+        context["page"] = page
+        context["page_obj"] = page_obj
+        context["page_num_list"] = page_num_list
+
         return context
     
 
@@ -25,9 +42,7 @@ class AttendanceCreateView(TemplateView):
     template_name = "attendance/create.html"
 
     def get_context_data(self, **kwargs):
-
         context = super().get_context_data(**kwargs)
-        
         return context
     
     def post(self, request):
