@@ -59,7 +59,66 @@ if (currentUrl.split("/")[3] == "attendance") {
         window.location.href = "/attendance/"
     })
 } else if (currentUrl.split("/")[3] == "question") {
-    // 여기에 작성
+    const uploadButton = document.querySelector('.input-upload');
+
+    uploadButton.addEventListener('click', () => {
+        const fileInput = document.getElementById('input_screenshot');
+        fileInput.click();
+    });
+
+    const fileInput = document.getElementById('input_screenshot');
+    const filenameContainer = document.querySelector('.upload-filename');
+    const fileRemove = document.querySelector('.file-remove');
+
+    fileInput.addEventListener('change', () => {
+        const selectedFile = fileInput.files[0];
+        if (selectedFile) {
+            filenameContainer.textContent = selectedFile.name;
+            filenameContainer.style.color = "#00F";
+            filenameContainer.style.margin = "0 10px"
+            filenameContainer.style.display = "flex";
+            filenameContainer.style.justifyContent = "center";
+            filenameContainer.style.alignItems = "center";
+            fileRemove.style.display = 'block';
+            fileRemove.style.height = "25px";
+            fileRemove.style.padding = "0 10px"
+            fileRemove.style.display = "flex";
+            fileRemove.style.justifyContent = "center";
+            fileRemove.style.alignItems = "center";
+            fileRemove.style.border = "0.5px solid lightgray";
+            fileRemove.style.borderRadius = "4px";
+            fileRemove.style.cursor = "pointer";
+        } else {
+            filenameContainer.textContent = '';
+        }
+    });
+
+    fileRemove.addEventListener('click', () => {
+        fileInput.value = null;
+        filenameContainer.textContent = '';
+        fileRemove.style.display = 'none';
+    });
+
+    const submitBtn = document.querySelector('.btn-submit');
+
+    submitBtn.addEventListener('click', (event) => {
+        const form = document.querySelector('.question-form');
+
+        var titleInput = document.getElementById('input_title');
+        var contentInput = document.getElementById('input_content');
+                
+        if (titleInput.value && contentInput.value) {
+            form.submit();
+        } else {
+            alert('제목과 내용은 필수 입력 항목입니다.')
+        }
+    })
+
+    const questionListBtn = document.querySelector('.btn-question-list');
+
+    questionListBtn.addEventListener("click", () => {
+        window.location.href = "/question/"
+    })
 }
 
 
