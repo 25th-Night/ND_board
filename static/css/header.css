@@ -21,13 +21,23 @@ nav {
     display: flex;
     color: var(--text-color-header);
     align-items: center;
+    padding: 20px 0;
 }
 
 nav .nav-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: Montserrat;
     font-size: 30px;
     font-weight: 800;
-    margin-right: 100px;
+    margin-right: 150px;
+}
+
+nav .nav-logo-img {
+    max-width: 70px;
+    max-height: 70px;
+    margin-right: 20px;
 }
 
 nav .nav-logo-name {

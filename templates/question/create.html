@@ -6,10 +6,36 @@
 {% endblock head_css %}
 
 {% block head_js %}
-<script defer src="{% static 'js/create.js %}"></script>
+<script defer src="{% static 'js/create.js' %}"></script>
 {% endblock head_js %}
 
 
 {% block content %}
-
+<section class="create-wrap">
+    <form class="question-form" action="" method="post">
+        {% csrf_token %}
+        <div class="form-item title-wrap">
+            <div class="input-title title">제목</div>
+            <input type="text" class="form-control" id="input_title" name="title">
+        </div>
+        <div class="form-item">
+            <div class="input-title content">내용</div>
+            <textarea id="input_content" cols="30" rows="10"  name="content"></textarea>
+        </div>
+        <div class="form-item screenshot-wrap">
+            <div class="input-title screenshot">스크린샷</div>
+            <div class="upload-wrap">
+                <div class="input-upload">업로드</div>
+                <div class="upload-filename"></div>
+                <div class="file-remove">제거</div>
+                <input type="file" class="form-control" id="input_screenshot" name="screenshot">
+            </div>
+        </div>
+        
+        <div class="btn-wrap">
+            <div class="btn-submit">질문 등록하기</div>
+            <div class="btn-question-list">목록보기</div>
+        </div>
+    </form>
+</section>
 {% endblock content %}

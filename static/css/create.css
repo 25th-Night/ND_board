@@ -2,69 +2,80 @@
     --text-color-header: rgb(53, 45, 45);
     --text-color-btn-sbm: white;
     --text-color-btn-atl: #009879;
+    --text-color-btn-uld: #009879;
     --background-color: #009879;
     --background-color-btn-sbm: #009879;
     --background-color-tr: rgba(219, 219, 219, 0.472);
     --border-color-btn-atl: #009879;
+    --border-color-btn-uld: #009879;
+    --shadow-color-btn-uld: rgba(0, 0, 0, 0.1);
 }
 
 
-section {
+.attendance_create section,
+.question_create section {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
 }
 
-form {
+.attendance_create form,
+.question_create form {
     width: 600px;
 }
 
-.form-item {
+.attendance_create .form-item,
+.question_create .form-item {
     margin-bottom: 15px;
 }
 
-.input-title {
+.attendance_create .input-title,
+.question_create .input-title {
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 10px;
 }
 
-.status-option-wrap {
+.attendance_create .status-option-wrap,
+.question_create .status-option-wrap {
     display: flex;
     align-items: center;
     height: 30px;
     font-size: 15px;
 }
 
-input[type="text"],
-input[type="date"],
-textarea {
+.attendance_create input[type="text"],
+.attendance_create input[type="date"],
+.attendance_create textarea,
+.question_create input[type="text"],
+.question_create textarea {
     box-sizing:border-box;
     width: 100%;
     border: 1px solid rgb(118, 118, 118);
     border-radius: 6px;
 }
 
-input[type="text"],
-input[type="date"] {
+.attendance_create input[type="text"],
+.attendance_create input[type="date"],
+.question_create input[type="text"] {
     height: 40px; 
     padding: 2px 5px;
 }
 
-input[type="date"] {
+.attendance_create input[type="date"] {
     max-width: 600px;
     font-family: 'Noto Sans KR';
     position: relative;
     background: url(/static/img/calendar.svg) no-repeat right 5px center / 10px auto;
 }
 
-input[type="date"]::-webkit-clear-button,
-input[type="date"]::-webkit-inner-spin-button {
+.attendance_create input[type="date"]::-webkit-clear-button,
+.attendance_create input[type="date"]::-webkit-inner-spin-button {
     display: none;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
+.attendance_create input[type="date"]::-webkit-calendar-picker-indicator {
     position: absolute;
     left: 0;
     top: 0;
@@ -75,26 +86,57 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
 }
 
-input[type="radio"] {
+.attendance_create input[type="radio"] {
     cursor: pointer;
 }
 
-label {
+.attendance_create label {
     margin-left: 5px;
 }
 
-textarea {
+.attendance_create textarea,
+.question_create textarea {
     resize: vertical;
     padding: 5px 5px;
 }
 
-.btn-wrap {
+.question_create .upload-wrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.question_create .input-upload {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px 10px;
+    width: 100px;
+    height: 30px;
+    border: 0.5px solid var(--border-color-btn-uld);
+    border-radius: 4px;
+    box-shadow: inset 0 0 8px var(--shadow-color-btn-uld),
+                inset 0 0 8px var(--shadow-color-btn-uld),
+                inset 4px 0 1px var(--shadow-color-btn-uld),
+                inset -4px 0 1px var(--shadow-color-btn-uld);
+    color: var(--text-color-btn-uld);
+    cursor: pointer;
+}
+
+.question_create .file-remove,
+.question_create #input_screenshot {
+    display: none;
+}
+
+.attendance_create .btn-wrap,
+.question_create .btn-wrap {
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
 }
 
-.btn-wrap div {
+.attendance_create .btn-wrap div,
+.question_create .btn-wrap div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,12 +146,14 @@ textarea {
     cursor: pointer;
 }
 
-.btn-submit {
+.attendance_create .btn-submit,
+.question_create .btn-submit {
     background-color : var(--background-color-btn-sbm);
     color: var(--text-color-btn-sbm);
 }
 
-.btn-attendance-list {
+.attendance_create .btn-attendance-list,
+.question_create .btn-question-list {
     border: 1px solid var(--border-color-btn-atl);
     color: var(--text-color-btn-atl);
 }
