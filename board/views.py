@@ -20,20 +20,17 @@ class AttendanceListView(TemplateView):
         context['attendances'] = attendances
 
          # Pagination
-        number_by_page = 10
+        number_by_page = 5
         paginator = Paginator(object_list=attendances, per_page=number_by_page)
-        page = self.request.GET.get("page", 1   )
+        page = self.request.GET.get("page", 1)
         page_obj = paginator.get_page(page)
         page_num_list = [num for num in range(1, page_obj.paginator.num_pages + 1)]
-
-
-        attendances_empty_row_count = number_by_page - len(attendances) % number_by_page
-        if not len(attendances) % number_by_page and len(attendances) != 0:
-            attendances_empty_row_count = 0
+        empty_row_count = number_by_page - len(page_obj.object_list)
 
         context["page"] = page
         context["page_obj"] = page_obj
         context["page_num_list"] = page_num_list
+        context['empty_row_count'] = empty_row_count
 
         return context
     
