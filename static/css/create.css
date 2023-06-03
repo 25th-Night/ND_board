@@ -1,11 +1,16 @@
 :root {
     --text-color-header: rgb(53, 45, 45);
     --text-color-btn-sbm: white;
+    --text-color-btn-sbm-hb: #009879;
     --text-color-btn-atl: #009879;
+    --text-color-btn-atl-hb: white;
     --text-color-btn-uld: #009879;
     --background-color: #009879;
     --background-color-btn-sbm: #009879;
+    --background-color-btn-sbm-hb: white;
+    --background-color-btn-atl-hb: #009879;
     --background-color-tr: rgba(219, 219, 219, 0.472);
+    --border-color-btn-sbm-hb: #009879;
     --border-color-btn-atl: #009879;
     --border-color-btn-uld: #009879;
     --shadow-color-btn-uld: rgba(0, 0, 0, 0.1);
@@ -152,8 +157,24 @@
     color: var(--text-color-btn-sbm);
 }
 
+.attendance_create .btn-submit:hover,
+.question_create .btn-submit:hover {
+    transform: scale(1.1);
+    background-color : var(--background-color-btn-sbm-hb);
+    color: var(--text-color-btn-sbm-hb);
+    border: 1px solid var(--border-color-btn-sbm-hb);
+    
+}
+
 .attendance_create .btn-attendance-list,
 .question_create .btn-question-list {
     border: 1px solid var(--border-color-btn-atl);
     color: var(--text-color-btn-atl);
+}
+
+.attendance_create .btn-attendance-list:hover,
+.question_create .btn-question-list:hover {
+    transform: scale(1.1);
+    background-color : var(--background-color-btn-atl-hb);
+    color: var(--text-color-btn-atl-hb);
 }

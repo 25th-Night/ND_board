@@ -3,17 +3,17 @@
     --text-color-page: #009879;
     --text-color-page-at: white;
     --text-color-th: white;
-    --text-color-btn-cr: white;
-    --text-color-btn-cr-hb: #009879;
+    --text-color-btn-cr: #009879;
+    --text-color-btn-cr-hb: white;
     --background-color: #009879;
     --background-color-page-at: #009879;
     --background-color-tb1: rgb(172, 172, 172);
     --background-color-tb2: #009879;
     --background-color-tb3: rgba(219, 219, 219, 0.472);
     --background-color-tr: rgba(219, 219, 219, 0.472);
-    --background-color-btn-cr: #009879;
-    --background-color-btn-cr-hb: white;
+    --background-color-btn-cr-hb: #009879;
     --border-color-page : #009879;
+    --border-color-btn-cr : #009879;
     --border-color-btn-cr-hb : #009879;
 }
 
@@ -33,17 +33,16 @@
     align-items: center;
     width: 200px;
     height: 40px;
-    background-color: var(--background-color-btn-cr);
     color: var(--text-color-btn-cr);
+    border: 1px solid var(--border-color-btn-cr);
     cursor: pointer;
     border-radius: 4px;
     box-sizing:border-box;
 }
 
-.attendance_list .attendance-create-btn:hover
+.attendance_list .attendance-create-btn:hover,
 .question_list .question-create-btn:hover {
     background-color: var(--background-color-btn-cr-hb);
-    border: 1px solid var(--border-color-btn-cr-hb);
     color: var(--text-color-btn-cr-hb);
 }
 
