@@ -5,11 +5,18 @@ createBtn.addEventListener("click", () => {
 })
 
 let currentUrl = window.location.href;
-let searchParams = new URLSearchParams(currentUrl);
-let pageValue = searchParams.get("page", 1);
+console.log(currentUrl);
+var arr = currentUrl.split('page=')
+var pageValue;
+if (currentUrl.includes('page')) {
+    pageValue = arr[arr.length -1]
+} else {
+    pageValue = 1
+}
+
 let page_nums = document.querySelectorAll('.page-link');
 for (let i = 0; i < page_nums.length; i++) {
-    if (page_nums[i].innertext == pageValue) {
+    if (page_nums[i].innerText == pageValue) {
         page_nums[i].style.backgroundColor = "#009879";
         page_nums[i].style.color = "white";
         break;
