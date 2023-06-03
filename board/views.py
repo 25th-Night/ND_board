@@ -12,7 +12,6 @@ class AttendanceListView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        return context
 
         attendances = Attendance.objects.all().order_by('-created_at')
         # Pagination
@@ -57,7 +56,6 @@ class QuestionListView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        return context
 
         questions = Question.objects.all().order_by("-created_at")
         context['questions'] = questions
