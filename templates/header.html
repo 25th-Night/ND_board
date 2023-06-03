@@ -5,14 +5,13 @@
 {% endblock head_css %}
 
 {% block head_js %}
-<script defer src="https://kit.fontawesome.com/c8ed40ec38.js" crossorigin="anonymous"></script>
 <script defer src="{% static 'js/header.js' %}"></script>
 {% endblock head_js %}
 
 <header class="header">
     <nav class="nav">
         <div class="nav-logo">
-            <i class="fa-solid fa-clipboard-check"></i>
+            <div class="nav-logo-img-wrap"><img src="{% static 'img/명탐정피카츄.gif' %}" alt="스크린샷" class="nav-logo-img"></div>
             <a href="{% url 'index' %}" class="nav-logo-name">ND BOARD</a>
         </div>
         <ul class="nav-menu">
