@@ -67,7 +67,7 @@ class QuestionListView(TemplateView):
     
 
 class QuestionDetailView(TemplateView):
-    template_name = "question/create.html"
+    template_name = "question/detail.html"
 
     def get_context_data(self, **kwargs):
 
@@ -80,7 +80,7 @@ class QuestionDetailView(TemplateView):
     
 
 class QuestionCreateView(TemplateView):
-    template_name = "question/list.html"
+    template_name = "question/create.html"
 
     def get_context_data(self, **kwargs):
 
