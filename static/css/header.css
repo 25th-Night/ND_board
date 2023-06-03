@@ -62,61 +62,6 @@ nav .nav-menu li:hover {
     display: none;
 }
 
-.list-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.table {
-    width: 600px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    font-size: 15px;
-}
-
-.table-head,
-.table-row {
-    display: flex;
-    height: 35px;
-    align-items: center;
-}
-
-.table-head {
-    font-weight: bold;
-    border-top: 2px solid var(--background-color-tb1);
-    background-color: var(--background-color);
-    color: var(--text-color-th);
-}
-
-.table-head div,
-.table-row div {
-    width: 150px;
-    text-align: center;
-}
-
-.table-row:nth-child(2n+1) {
-    background-color: var(--background-color-tr); 
-}
-
-.table-row:last-child {
-    border-bottom:  2px solid var(--background-color-tb2);
-}
-
-.attendance-submit-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    width: 200px;
-    height: 40px;
-    background-color: var(--background-color);
-    color: white;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-
 
 @media screen and (max-width: 768px) {
 

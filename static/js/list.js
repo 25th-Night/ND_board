@@ -1,11 +1,20 @@
-const createBtn = document.querySelector(".attendance-create-btn");
+var currentUrl = window.location.href;
 
-createBtn.addEventListener("click", () => {
-    window.location.href = "/attendance/create/"
-})
+if (currentUrl.split("/")[3] == "attendance") {
+    const attendanceCreateBtn = document.querySelector(".attendance-create-btn");
 
-let currentUrl = window.location.href;
-console.log(currentUrl);
+    attendanceCreateBtn.addEventListener("click", () => {
+        window.location.href = "/attendance/create/"
+    })
+} else if (currentUrl.split("/")[3] == "question") {
+    const questionCreateBtn = document.querySelector(".question-create-btn");
+
+    questionCreateBtn.addEventListener("click", () => {
+        window.location.href = "/question/create/"
+    })
+}
+
+
 var arr = currentUrl.split('page=')
 var pageValue;
 if (currentUrl.includes('page')) {

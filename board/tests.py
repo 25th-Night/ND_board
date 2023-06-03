@@ -1,6 +1,5 @@
 
 from datetime import datetime, date, timedelta
-import random
 
 from django.test import TestCase, Client
 from django.urls import reverse
@@ -91,4 +90,4 @@ class AttendanceCreateViewTest(TestCase):
         self.assertEqual(attendance.reason, '없습니다.')
 
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('attendance_list'))
+        self.assertRedirects(response, reverse('attendance_list'), status_code=302, target_status_code=200)
