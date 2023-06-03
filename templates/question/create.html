@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 
-{%block head_css%}
-
+{% block head_css %}
+<link rel="stylesheet" href="{% static 'css/create.css' %}">
 {% endblock head_css %}
 
+{% block head_js %}
+<script defer src="{% static 'js/create.js %}"></script>
+{% endblock head_js %}
 
 
-{% block content%}
+{% block content %}
 
-{% endblock content%}
+{% endblock content %}
