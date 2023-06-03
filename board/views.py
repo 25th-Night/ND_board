@@ -11,8 +11,8 @@ class AttendanceListView(TemplateView):
     data_per_page = 10
 
     def get_context_data(self, **kwargs):
-
-        context = {}
+        context = super().get_context_data(**kwargs)
+        return context
 
         attendances = Attendance.objects.all().order_by('-created_at')
         # Pagination
@@ -47,8 +47,7 @@ class AttendanceCreateView(TemplateView):
         )
         
         # 메시지 설정
-        messages.success(request, "성공했습니다.")
-        messages.info(request, "추가 메시지")
+        messages.success(request, "등록에 성공했습니다.")
 
         return redirect('attendance_list')
 
@@ -57,8 +56,8 @@ class QuestionListView(TemplateView):
     template_name = "question/list.html"
 
     def get_context_data(self, **kwargs):
-
-        context = {}
+        context = super().get_context_data(**kwargs)
+        return context
 
         questions = Question.objects.all().order_by("-created_at")
         context['questions'] = questions
@@ -70,8 +69,8 @@ class QuestionDetailView(TemplateView):
     template_name = "question/detail.html"
 
     def get_context_data(self, **kwargs):
-
         context = super().get_context_data(**kwargs)
+
         question_id = kwargs['id']
         question = get_object_or_404(Question, id=question_id)
         context['question'] = question
@@ -83,14 +82,29 @@ class QuestionCreateView(TemplateView):
     template_name = "question/create.html"
 
     def get_context_data(self, **kwargs):
-
-        context = {}
-
+        context = super().get_context_data(**kwargs)
         return context
 
-        
-    
     def post(self, request):
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        screenshot = request.FILES.get('screenshot')
+
+        if not screenshot:
+            Question.objects.create(
+                title=title,
+                content=content,
+            )
+        else:
+            Question.objects.create(
+                title=title,
+                content=content,
+                screenshot=screenshot,
+            )
+
+        # 메시지 설정
+        messages.success(request, "등록에 성공했습니다.")
+
         return redirect('question_list')
     
 
