@@ -5,7 +5,6 @@ createBtn.addEventListener("click", () => {
 })
 
 let currentUrl = window.location.href;
-console.log(currentUrl);
 var arr = currentUrl.split('page=')
 var pageValue;
 if (currentUrl.includes('page')) {
