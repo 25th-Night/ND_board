@@ -1,16 +1,21 @@
 :root {
     --text-color-header: rgb(53, 45, 45);
+    --text-color-page: #009879;
+    --text-color-page-at: white;
     --text-color-th: white;
     --text-color-btn-cr: white;
     --text-color-btn-cr-hb: #009879;
     --background-color: #009879;
+    --background-color-page-at: #009879;
     --background-color-tb1: rgb(172, 172, 172);
     --background-color-tb2: #009879;
     --background-color-tr: rgba(219, 219, 219, 0.472);
     --background-color-btn-cr: #009879;
     --background-color-btn-cr-hb: white;
+    --border-color-page : #009879;
     --border-color-btn-cr-hb : #009879;
 }
+
 
 .list-wrap {
     display: flex;
@@ -18,7 +23,6 @@
     align-items: center;
     margin-top: 20px;
 }
-
 
 .attendance-create-btn {
     display: flex;
@@ -37,6 +41,28 @@
     background-color: var(--background-color-btn-cr-hb);
     border: 1px solid var(--border-color-btn-cr-hb);
     color: var(--text-color-btn-cr-hb);
+}
+
+.page-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0 15px;
+    padding: 0 20px;
+    border-top: 1px solid var(--border-color-page);
+    border-bottom: 1px solid var(--border-color-page);
+}
+
+.page-link {
+    text-decoration: none;
+    color: var(--text-color-page);
+    margin: 0 5px;
+    padding: 0 7px;
+}
+
+.page-item:hover {
+    transform: scale(1.2);
+    filter: brightness(120%);
 }
 
 .table {
