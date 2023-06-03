@@ -12,7 +12,7 @@
 
 {% block content %}
 <section class="create-wrap">
-    <form class="question-form" action="" method="post">
+    <form class="question-form" action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-item title-wrap">
             <div class="input-title title">제목</div>
