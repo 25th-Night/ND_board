@@ -21,7 +21,7 @@ class Attendance(BaseModel):
         (ABSENT, "결석"), # 사유 필히 작성
         (PARTIAL, "일부 일정 불참"), # 사유 필히 작성
     ]
-    name = models.CharField(verbose_name="이름", max_length=10)
+    name = models.CharField(verbose_name="이름", max_length=5)
     date = models.DateField(verbose_name="날짜")
     status = models.PositiveSmallIntegerField(verbose_name="출석여부", choices=ATTENDANCE_TYPE)
     reason = models.TextField(verbose_name="사유", null=True, blank=True)
