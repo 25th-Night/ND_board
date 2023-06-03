@@ -17,14 +17,16 @@
 }
 
 
-.list-wrap {
+.attendance_list .list-wrap,
+.question_list .list-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
 }
 
-.attendance-create-btn {
+.attendance_list .attendance-create-btn,
+.question_list .question-create-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,13 +39,15 @@
     box-sizing:border-box;
 }
 
-.attendance-create-btn:hover {
+.attendance_list .attendance-create-btn:hover
+.question_list .question-create-btn:hover {
     background-color: var(--background-color-btn-cr-hb);
     border: 1px solid var(--border-color-btn-cr-hb);
     color: var(--text-color-btn-cr-hb);
 }
 
-.page-list {
+.attendance_list .page-list,
+.question_list .page-list {
     list-style: none;
     display: flex;
     justify-content: space-between;
@@ -53,60 +57,91 @@
     border-bottom: 1px solid var(--border-color-page);
 }
 
-.page-link {
+.attendance_list .page-link,
+.question_list .page-link {
     text-decoration: none;
     color: var(--text-color-page);
     margin: 0 5px;
     padding: 0 7px;
 }
 
-.page-item:hover {
+.attendance_list .page-item:hover,
+.question_list .page-item:hover {
     transform: scale(1.2);
     filter: brightness(120%);
 }
 
-.table {
+.attendance_list .table,
+.question_list .table {
     width: 600px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-size: 15px;
 }
 
-.table-head,
-.table-row {
+.attendance_list .table-head,
+.attendance_list .table-row,
+.question_list .table-head,
+.question_list .table-row {
     display: flex;
     height: 35px;
     align-items: center;
 }
 
-.table-head {
+.attendance_list .table-head,
+.question_list .table-head {
     font-weight: bold;
     border-top: 2px solid var(--background-color-tb1);
     background-color: var(--background-color);
     color: var(--text-color-th);
 }
 
-.table-head div,
-.table-row div {
-    width: 150px;
+.attendance_list .table-head div,
+.attendance_list .table-row div,
+.question_list .table-head div,
+.question_list .table-row div {
+    width: 120px;
     text-align: center;
+    margin: 0 15px;
 }
 
-.table-row:nth-child(2n+1) {
+.attendance_list .table-row:nth-child(2n+1),
+.question_list .table-row:nth-child(2n+1) {
     background-color: var(--background-color-tr); 
 }
 
-.table-row:last-child {
+.attendance_list .table-row:last-child,
+.question_list .table-row:last-child {
     border-bottom:  2px solid var(--background-color-tb2);
+}
+
+.attendance_list .name,
+.question_list .title,
+.question_list .content {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.screenshot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    max-width: 30px;
+    max-height: 30px;
 }
 
 
 
 @media screen and (max-width: 768px) {
-    div.table {
+    .attendance_list div.table {
         width: 400px;
     }
 
-    .reason {
+    .attendance_list .reason,
+    .attendance_list .screenshot {
         display: none;
     }
 
