@@ -1,31 +1,22 @@
 from django.contrib import messages
-from django.shortcuts import get_object_or_404, redirect, render
-from django.views import View
+from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import TemplateView
-from django.core.paginator import Paginator
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
 
 from board.models import Attendance, Question
+from board.utils import Pagination
 
 
 class AttendanceListView(TemplateView):
     template_name = "attendance/list.html"
+    data_per_page = 10
 
     def get_context_data(self, **kwargs):
 
         context = {}
 
         attendances = Attendance.objects.all().order_by('-created_at')
-        context['attendances'] = attendances
-
-         # Pagination
-        number_by_page = 5
-        paginator = Paginator(object_list=attendances, per_page=number_by_page)
-        page = self.request.GET.get("page", 1)
-        page_obj = paginator.get_page(page)
-        page_num_list = [num for num in range(1, page_obj.paginator.num_pages + 1)]
-        empty_row_count = number_by_page - len(page_obj.object_list)
+        # Pagination
+        page, page_obj, page_num_list, empty_row_count = Pagination(self.request, attendances, self.data_per_page).paginate
 
         context["page"] = page
         context["page_obj"] = page_obj

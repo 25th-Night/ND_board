@@ -1,6 +1,7 @@
-from django.db import models
 from enum import Enum
-
+from datetime import datetime, date
+from django.db import models
+from django.core.exceptions import ValidationError
 
 
 class BaseModel(models.Model):
@@ -27,6 +28,15 @@ class Attendance(BaseModel):
 
     def __str__(self):
         return self.get_status_display()
+    
+    def clean_reason(self):
+        if self.status != 1 and not self.reason:
+            raise ValidationError("결석 및 일부 불참의 경우, 사유를 반드시 작성해야 합니다.")
+    
+    def clean_date(self):
+        if self.date > datetime.today().date():
+            raise ValidationError("오늘 이후의 출결을 미리 등록할 수 없습니다. ")
+
 
     class Meta:
         verbose_name = "출결"
