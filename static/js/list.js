@@ -12,6 +12,15 @@ if (currentUrl.split("/")[3] == "attendance") {
     questionCreateBtn.addEventListener("click", () => {
         window.location.href = "/question/create/"
     })
+
+    const questions = document.querySelector('.table-row-wrap');
+    questions.addEventListener("click", (event) => {
+        const questionClassName = event.target.className;
+        if (/\d/.test(questionClassName)) {
+            const questionId = questionClassName.match(/\d+/)[0];
+            window.location.href = `/question/detail/${questionId}`
+        }
+    })
 }
 
 
