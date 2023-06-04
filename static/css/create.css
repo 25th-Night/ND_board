@@ -22,12 +22,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin: 20px 20px;
 }
 
 .attendance_create form,
 .question_create form {
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
 }
 
 .attendance_create .form-item,
