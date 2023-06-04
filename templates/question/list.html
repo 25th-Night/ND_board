@@ -53,5 +53,33 @@
             {% endfor %}
         </div>
     </div>
+    {% if messages %}
+        <div id="toast-container" class="toast-container">
+            <div id="toast" class="toast">
+                <div class="toast-body">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var toastContainer = document.getElementById('toast-container');
+                var toast = document.getElementById('toast');
+    
+                // 메시지 출력 함수
+                function showMessage() {
+                    toastContainer.classList.add('show');
+                    setTimeout(function() {
+                        toastContainer.classList.remove('show');
+                    }, 3000);
+                }
+    
+                showMessage();
+            });
+        </script>
+    {% endif %}
 </section>
 {% endblock content %}
