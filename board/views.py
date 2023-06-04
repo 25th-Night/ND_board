@@ -66,7 +66,6 @@ class QuestionListView(TemplateView):
         context["page_obj"] = page_obj
         context["page_num_list"] = page_num_list
         context['empty_row_count'] = empty_row_count
-        print(f"{page}\n{page_obj}\n{page_num_list}\n{empty_row_count}")
 
         return context
     
