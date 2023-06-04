@@ -46,7 +46,7 @@ class Attendance(BaseModel):
 class Question(BaseModel):
     title = models.CharField(verbose_name="제목", max_length=30)
     content = models.TextField(verbose_name="내용")
-    screenshot = models.ImageField(verbose_name="스크린샷", default="/static/img/명탐정피카20.gif")
+    screenshot = models.ImageField(verbose_name="스크린샷", default='default_img/명탐정피카20.gif')
 
     def __str__(self):
         return self.title
