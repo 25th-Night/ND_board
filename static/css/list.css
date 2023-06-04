@@ -142,7 +142,8 @@ img {
 
 
 @media screen and (max-width: 768px) {
-    .attendance_list div.table {
+    .attendance_list div.table,
+    .question_list div.table {
         width: 400px;
     }
 
@@ -155,7 +156,7 @@ img {
 }
 
     .attendance_list .reason,
-    .attendance_list .screenshot {
+    .question_list .screenshot {
         display: none;
     }
 
