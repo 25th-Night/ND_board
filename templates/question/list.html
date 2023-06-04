@@ -27,6 +27,7 @@
 
     <div class="table">
         <div class="table-head">
+            <div class="date">날짜</div>
             <div class="title">제목</div>
             <div class="content">내용</div>
             <div class="screenshot">첨부파일</div>
@@ -34,6 +35,7 @@
         <div class="table-row-wrap">
             {% for question in page_obj %}
                 <div class="table-row q-{{ question.id }}">
+                    <div class="date">{{ question.created_at|date:"Y년 n월 d일" }}</div>
                     <div class="title">{{ question.title }}</div>
                     <div class="content">{{ question.content }}</div>
                     <div class="screenshot">
@@ -43,6 +45,7 @@
             {% endfor %}
             {% for i in ""|rjust:empty_row_count %}
                 <div class="table-row">
+                    <div class="date"></div>
                     <div class="title"></div>
                     <div class="content"></div>
                     <div class="screenshot"></div>
