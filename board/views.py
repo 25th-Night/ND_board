@@ -14,7 +14,7 @@ class AttendanceListView(TemplateView):
         context = super().get_context_data(**kwargs)
 
         attendances = Attendance.objects.all().order_by('-created_at')
-        # Pagination
+
         page, page_obj, page_num_list, empty_row_count = Pagination(self.request, attendances, self.data_per_page).paginate
 
         context["page"] = page
@@ -53,12 +53,20 @@ class AttendanceCreateView(TemplateView):
 
 class QuestionListView(TemplateView):
     template_name = "question/list.html"
+    data_per_page = 10
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
         questions = Question.objects.all().order_by("-created_at")
-        context['questions'] = questions
+        
+        page, page_obj, page_num_list, empty_row_count = Pagination(self.request, questions, self.data_per_page).paginate
+
+        context["page"] = page
+        context["page_obj"] = page_obj
+        context["page_num_list"] = page_num_list
+        context['empty_row_count'] = empty_row_count
+        print(f"{page}\n{page_obj}\n{page_num_list}\n{empty_row_count}")
 
         return context
     
