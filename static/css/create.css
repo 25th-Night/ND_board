@@ -1,5 +1,6 @@
 :root {
     --text-color-header: rgb(53, 45, 45);
+    --text-color-required: red;
     --text-color-btn-sbm: white;
     --text-color-btn-sbm-hb: #009879;
     --text-color-btn-atl: #009879;
@@ -66,7 +67,7 @@
 .attendance_create input[type="date"],
 .question_create input[type="text"] {
     height: 40px; 
-    padding: 2px 5px;
+    padding: 2px 10px;
 }
 
 .attendance_create input[type="date"] {
@@ -96,6 +97,12 @@
     cursor: pointer;
 }
 
+.attendance_create .required,
+.question_create .required {
+    color: var(--text-color-required);
+    font-weight: bold;
+}
+
 .attendance_create label {
     margin-left: 5px;
 }
@@ -103,7 +110,7 @@
 .attendance_create textarea,
 .question_create textarea {
     resize: vertical;
-    padding: 5px 5px;
+    padding: 10px 10px;
 }
 
 .question_create .upload-wrap {
