@@ -11,6 +11,7 @@
     --background-color-tb2: #009879;
     --background-color-tb3: rgba(219, 219, 219, 0.472);
     --background-color-tr: rgba(219, 219, 219, 0.472);
+    --background-color-tr-hb: #00b99453;
     --background-color-btn-cr-hb: #009879;
     --border-color-page : #009879;
     --border-color-btn-cr : #009879;
@@ -99,6 +100,11 @@
     border-top-left-radius: 4px;
 }
 
+.attendance_list .table-row:nth-child(2n+1),
+.question_list .table-row:nth-child(2n+1) {
+    background-color: var(--background-color-tr); 
+}
+
 .attendance_list .table-head div,
 .attendance_list .table-row div,
 .question_list .table-head div,
@@ -108,21 +114,18 @@
     margin: 0 15px;
 }
 
-.attendance_list .table-row:nth-child(2n+1),
-.question_list .table-row:nth-child(2n+1) {
-    background-color: var(--background-color-tr); 
-}
-/* 
-.attendance_list .table-row:last-child,
-.question_list .table-row:last-child {
-} */
-
 .attendance_list .name,
 .question_list .title,
 .question_list .content {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.question_list .table-row:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: var(--background-color-tr-hb);
 }
 
 .screenshot {
