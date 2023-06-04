@@ -11,5 +11,25 @@
 
 
 {% block content %}
+<section class="detail-wrap">
 
+    <div class="screenshot-wrap">
+        <img src="{{ question.screenshot.url }}" alt="screenshot" id="screenshot">
+    </div>
+    <div class="date-wrap">
+        <div class="title">날짜</div>
+        <div class="data question_date">{{ question.created_at|date:"Y년 n월 d일" }}</div>
+    </div>
+    <div class="title-wrap">
+        <div class="title">제목</div>
+        <div class="data question_title">{{ question.title }}</div>
+    </div>
+    <div class="content-wrap">
+        <div class="title">내용</div>
+        <div class="data question_content">{{ question.content }}</div>
+    </div>
+    <div class="btn-wrap">
+        <div class="btn-question-list">목록보기</div>
+    </div>
+</section>
 {% endblock content %}

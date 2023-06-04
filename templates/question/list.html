@@ -19,7 +19,7 @@
         <ul class="page-list">
             {% for page_num in page_num_list %}
             <li class="page-item {% if page_obj.number == page_num %}active{% endif %}">
-                <a href="{% url 'attendance_list' %}?page={{page_num}}" class="page-link">{{ page_num }}</a>
+                <a href="{% url 'question_list' %}?page={{page_num}}" class="page-link">{{ page_num }}</a>
             </li>
             {% endfor %}
         </ul>
@@ -32,26 +32,26 @@
             <div class="content">내용</div>
             <div class="screenshot">첨부파일</div>
         </div>
-        <div class="table-row">
-            <div class="date">2022.03.13</div>
-            <div class="title">수업 내용 문의</div>
-            <div class="content">커리큘럼 확인 어디서</div>
-            <div class="screenshot"><img src="{% static 'img/명탐정피카20.gif' %}" alt="스크린샷"></div>
+        <div class="table-row-wrap">
+            {% for question in page_obj %}
+                <div class="table-row" data-id="{{ question.id }}">
+                    <div class="date">{{ question.created_at|date:"Y년 n월 d일" }}</div>
+                    <div class="title">{{ question.title }}</div>
+                    <div class="content">{{ question.content }}</div>
+                    <div class="screenshot">
+                        <img src="{{ question.screenshot.url }}" alt="screenshot" class="screenshot-img">
+                    </div>
+                </div>
+            {% endfor %}
+            {% for i in ""|rjust:empty_row_count %}
+                <div class="table-row">
+                    <div class="date"></div>
+                    <div class="title"></div>
+                    <div class="content"></div>
+                    <div class="screenshot"></div>
+                </div>
+            {% endfor %}
         </div>
-        <div class="table-row">
-            <div class="date">2022.03.15</div>
-            <div class="title">결석으로 인한 행정 문의</div>
-            <div class="content">인정 처리 받는 방법</div>
-            <div class="screenshot"><img src="{% static 'img/명탐정피카20.gif' %}" alt="스크린샷"></div>
-        </div>
-        <div class="table-row">
-            <div class="date">2022.03.17</div>
-            <div class="title">스터디원 모집</div>
-            <div class="content">같이 공부하실분</div>
-            <div class="screenshot"><img src="{% static 'img/명탐정피카20.gif' %}" alt="스크린샷"></div>
-        </div>
-	    </div>
-    
     </div>
 </section>
 {% endblock content %}

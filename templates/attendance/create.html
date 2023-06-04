@@ -15,15 +15,15 @@
     <form class="attendance-form" action="" method="post">
         {% csrf_token %}
         <div class="form-item name-wrap">
-            <div class="input-title name">이름</div>
+            <div class="input-title name">이름 <span class="required">*</span></div>
             <input type="text" class="form-control" id="input_name" name="name">
         </div>
         <div class="form-item date-wrap">
-            <div class="input-title date">날짜</div>
+            <div class="input-title date">날짜 <span class="required">*</span></div>
             <input type="date" class="form-control" id="input_date" name="date">
         </div>
         <div class="form-item status-wrap">
-            <div class="input-title status">출석여부</div>
+            <div class="input-title status">출석여부 <span class="required">*</span></div>
             <div class="status-option-wrap">
                 <input type="radio" class="form-control" id="input_radio_attendance" name="status" value="1">
                 <label for="input_radio_attendance" class="status">출석</label>

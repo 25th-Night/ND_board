@@ -1,11 +1,17 @@
 :root {
     --text-color-header: rgb(53, 45, 45);
+    --text-color-required: red;
     --text-color-btn-sbm: white;
+    --text-color-btn-sbm-hb: #009879;
     --text-color-btn-atl: #009879;
+    --text-color-btn-atl-hb: white;
     --text-color-btn-uld: #009879;
     --background-color: #009879;
     --background-color-btn-sbm: #009879;
+    --background-color-btn-sbm-hb: white;
+    --background-color-btn-atl-hb: #009879;
     --background-color-tr: rgba(219, 219, 219, 0.472);
+    --border-color-btn-sbm-hb: #009879;
     --border-color-btn-atl: #009879;
     --border-color-btn-uld: #009879;
     --shadow-color-btn-uld: rgba(0, 0, 0, 0.1);
@@ -17,12 +23,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin: 20px 20px;
 }
 
 .attendance_create form,
 .question_create form {
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
 }
 
 .attendance_create .form-item,
@@ -60,7 +67,7 @@
 .attendance_create input[type="date"],
 .question_create input[type="text"] {
     height: 40px; 
-    padding: 2px 5px;
+    padding: 2px 10px;
 }
 
 .attendance_create input[type="date"] {
@@ -90,6 +97,12 @@
     cursor: pointer;
 }
 
+.attendance_create .required,
+.question_create .required {
+    color: var(--text-color-required);
+    font-weight: bold;
+}
+
 .attendance_create label {
     margin-left: 5px;
 }
@@ -97,7 +110,7 @@
 .attendance_create textarea,
 .question_create textarea {
     resize: vertical;
-    padding: 5px 5px;
+    padding: 10px 10px;
 }
 
 .question_create .upload-wrap {
@@ -152,8 +165,24 @@
     color: var(--text-color-btn-sbm);
 }
 
+.attendance_create .btn-submit:hover,
+.question_create .btn-submit:hover {
+    transform: scale(1.1);
+    background-color : var(--background-color-btn-sbm-hb);
+    color: var(--text-color-btn-sbm-hb);
+    border: 1px solid var(--border-color-btn-sbm-hb);
+    
+}
+
 .attendance_create .btn-attendance-list,
 .question_create .btn-question-list {
     border: 1px solid var(--border-color-btn-atl);
     color: var(--text-color-btn-atl);
+}
+
+.attendance_create .btn-attendance-list:hover,
+.question_create .btn-question-list:hover {
+    transform: scale(1.1);
+    background-color : var(--background-color-btn-atl-hb);
+    color: var(--text-color-btn-atl-hb);
 }

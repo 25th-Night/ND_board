@@ -32,12 +32,12 @@
             <div class="reason">비고</div>
         </div>
         {% for attendance in page_obj %}
-        <div class="table-row">
-            <div class="name">{{ attendance.name }}</div>
-            <div class="date">{{ attendance.date }}</div>
-            <div class="status">{{ attendance.get_status_display }}</div>
-            <div class="reason">{{ attendance.reason }}</div>
-        </div>
+            <div class="table-row">
+                <div class="name">{{ attendance.name }}</div>
+                <div class="date">{{ attendance.date }}</div>
+                <div class="status">{{ attendance.get_status_display }}</div>
+                <div class="reason">{{ attendance.reason }}</div>
+            </div>
         {% endfor %}
         {% for i in ""|rjust:empty_row_count %}
             <div class="table-row">
