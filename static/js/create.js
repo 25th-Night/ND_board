@@ -72,7 +72,13 @@ if (currentUrl.split("/")[3] == "attendance") {
 
     fileInput.addEventListener('change', () => {
         const selectedFile = fileInput.files[0];
-        if (selectedFile) {
+
+        const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+        if (!allowedExtensions.test(selectedFile.name)) {
+            alert('jpg, jpeg, png, gif 파일만 업로드 가능합니다.');
+            fileInput.value = '';
+        } else if (selectedFile) {
             filenameContainer.textContent = selectedFile.name;
             filenameContainer.style.color = "#00F";
             filenameContainer.style.margin = "0 10px"
@@ -120,5 +126,3 @@ if (currentUrl.split("/")[3] == "attendance") {
         window.location.href = "/question/"
     })
 }
-
-
