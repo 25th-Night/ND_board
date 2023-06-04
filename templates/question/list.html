@@ -34,7 +34,7 @@
         </div>
         <div class="table-row-wrap">
             {% for question in page_obj %}
-                <div class="table-row q-{{ question.id }}">
+                <div class="table-row" data-id="{{ question.id }}">
                     <div class="date">{{ question.created_at|date:"Y년 n월 d일" }}</div>
                     <div class="title">{{ question.title }}</div>
                     <div class="content">{{ question.content }}</div>
