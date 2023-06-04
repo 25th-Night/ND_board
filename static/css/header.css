@@ -45,6 +45,16 @@ nav .nav-logo-name {
     color: var(--text-color-header);
 }
 
+nav .nav-logo-name1 {
+    display: inline;
+}
+
+nav .nav-logo-name2 {
+    display: none;
+}
+
+
+
 nav .nav-menu {
     display: flex;
     padding: 0;
@@ -66,10 +76,15 @@ nav .nav-menu li:hover {
 
 .nav-toggleBtn {
     position: absolute;
-    top: 30px;
-    right: 32px;
+    top: 45px;
+    right: 5%;
     color: var(--accent-color);
     display: none;
+}
+
+.list-menu {
+    max-width: 30px;
+    min-height: 30px;
 }
 
 
@@ -86,6 +101,15 @@ nav .nav-menu li:hover {
         margin: 0;
         width: 100%;
     }
+
+    nav .nav-logo-name1 {
+        display: none;
+    }
+    
+    nav .nav-logo-name2 {
+        display: inline;
+    }
+    
 
     nav .nav-menu {
         display: none;
