@@ -93,6 +93,31 @@ class AttendanceCreateViewTest(TestCase):
         self.assertRedirects(response, reverse('attendance_list'), status_code=302, target_status_code=200)
 
 
+class QuestionListViewTest(TestCase):
+    def setUp(self):
+        data_num = 17
+        for i in range(data_num):
+            Question.objects.create(
+                title = f"Title {i}",
+                content = f"Content {i}",
+            )
+        
+        self.attendances = Question.objects.all()
+
+    def test_pagination(self):
+        response = self.client.get("/question/")
+        page_nums = response.context['page_num_list']
+        for page_num in page_nums:
+            each_response = self.client.get("/question/?page=" + str(page_num))
+            if page_num == page_nums[-1]:
+                self.assertEqual(self.attendances.count() % QuestionListView.data_per_page, len(each_response.context['page_obj']))
+                break
+            self.assertEqual(QuestionListView.data_per_page, len(each_response.context['page_obj']))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'question/list.html')
+
+
 class QuestionCreateViewTest(TestCase):
     def setUp(self):
         data = None
