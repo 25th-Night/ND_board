@@ -4,8 +4,8 @@ from datetime import datetime, date, timedelta
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.core.exceptions import ValidationError
-from board.models import Attendance
-from board.views import AttendanceListView
+from board.models import Attendance, Question
+from board.views import AttendanceListView, QuestionListView
 from board.utils import Pagination
 
 
@@ -91,3 +91,26 @@ class AttendanceCreateViewTest(TestCase):
 
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('attendance_list'), status_code=302, target_status_code=200)
+
+
+class QuestionCreateViewTest(TestCase):
+    def setUp(self):
+        data = None
+
+    def test_post(self):
+        form_data = dict(
+                        title= "테스트",
+                        content = "테스트중입니다."
+                        )
+        response = self.client.post("/question/create/", form_data)
+
+        question = Question.objects.first()
+
+        self.assertEqual(question.title, "테스트")
+        self.assertEqual(question.content, "테스트중입니다.")
+        self.assertEqual(question.screenshot, "default_img/명탐정피카20.gif")
+
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('question_list'), status_code=302, target_status_code=200)
+
+
