@@ -34,7 +34,7 @@
         {% for attendance in page_obj %}
             <div class="table-row">
                 <div class="name">{{ attendance.name }}</div>
-                <div class="date">{{ attendance.date }}</div>
+                <div class="date">{{ attendance.date|date:"Y년 n월 d일" }}</div>
                 <div class="status">{{ attendance.get_status_display }}</div>
                 <div class="reason">{{ attendance.reason }}</div>
             </div>
@@ -76,5 +76,8 @@
             });
         </script>
     {% endif %}
+    <script>
+        var attendanceCreateUrl = "{% url 'attendance_create' %}";
+    </script>
 </section>
 {% endblock content%}
