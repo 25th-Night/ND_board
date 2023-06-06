@@ -1,17 +1,17 @@
 var currentUrl = window.location.href;
 
-if (currentUrl.split("/")[3] == "attendance") {
+if (currentUrl.includes("attendance")) {
     const attendanceCreateBtn = document.querySelector(".attendance-create-btn");
 
     attendanceCreateBtn.addEventListener("click", () => {
-        window.location.href = "/attendance/create/"
+        window.location.href = attendanceCreateUrl;
     })
-} else if (currentUrl.split("/")[3] == "question") {
+} else if (currentUrl.includes("question")) {
     const questionCreateBtn = document.querySelector(".question-create-btn");
-
+    
     questionCreateBtn.addEventListener("click", () => {
-        window.location.href = "/question/create/"
-        })
+        window.location.href = questionCreateUrl;
+    })
 
     const questions = document.querySelector('.table-row-wrap');
     questions.addEventListener("click", (event) => {
@@ -19,7 +19,7 @@ if (currentUrl.split("/")[3] == "attendance") {
         if (clickedRow) {
             const questionId = clickedRow.dataset.id;
             if (questionId) {
-                window.location.href = `/question/${questionId}`;
+                window.location.href = questionId + '/';
             }
         }
     })

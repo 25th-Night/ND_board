@@ -1,6 +1,6 @@
 var currentUrl = window.location.href;
 
-if (currentUrl.split("/")[3] == "attendance") {
+if (currentUrl.includes("attendance")) {
     let dateInput = document.getElementById('input_date');
 
     dateInput.addEventListener('change', function () {
@@ -56,9 +56,9 @@ if (currentUrl.split("/")[3] == "attendance") {
     const attendanceListBtn = document.querySelector('.btn-attendance-list');
 
     attendanceListBtn.addEventListener("click", () => {
-        window.location.href = "/attendance/"
+        window.location.href = attendanceListUrl;
     })
-} else if (currentUrl.split("/")[3] == "question") {
+} else if (currentUrl.includes("question")) {
     const uploadButton = document.querySelector('.input-upload');
 
     uploadButton.addEventListener('click', () => {
@@ -123,6 +123,6 @@ if (currentUrl.split("/")[3] == "attendance") {
     const questionListBtn = document.querySelector('.btn-question-list');
 
     questionListBtn.addEventListener("click", () => {
-        window.location.href = "/question/"
+        window.location.href = questionListUrl;
     })
 }
