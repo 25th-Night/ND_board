@@ -28,7 +28,8 @@
 <br>
 
 ## 💻 Architecture
-- 이미지 삽입
+![Architecture_ND Board](https://github.com/25th-Night/ND_board/assets/104040502/930ece05-8baa-4b16-a2ea-54e1904817ab)
+
 
 <br>
 
