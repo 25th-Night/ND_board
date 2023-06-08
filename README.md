@@ -1,5 +1,11 @@
 # ND_board
 
+<br>
+
+> 이 프로젝트는 김형종 강사님의 Django 수업에서 진행한 토이 프로젝트를 리마인드하는 일환으로 진행되었습니다.
+
+<br>
+
 ## 📑 기술 및 환경
 
 | <center>Section</center>           |   <center>Application</center>
